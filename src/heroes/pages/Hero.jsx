@@ -22,7 +22,7 @@ export const Hero = () => {
 
 	return (
 		<div className="row mt-5">
-			<div className="col-4">
+			<div className="col-4 animate__animated animate__bounceInLeft">
 				<img 
 					src={`/assets/heroes/${ heroId }.jpg`}  
 					alt={ hero.superhero }
