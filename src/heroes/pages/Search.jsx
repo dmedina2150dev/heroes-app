@@ -16,6 +16,9 @@ export const Search = () => {
 
 	const heroes = getHerosByName(q);
 
+	const showSearch = (q.length === 0);
+	const showError = (q.length > 0 && heroes.length === 0);
+
 	// console.log({ location, query })
 
 	const { searchText, onInputChange } = useForm({
@@ -25,7 +28,7 @@ export const Search = () => {
 	const onSearchSubmit = (event) => {
 		event.preventDefault();
 
-		if ( searchText.trim().length <= 1 ) return;
+		// if ( searchText.trim().length <= 1 ) return;
 
 		navigate(`?q=${ searchText.toLowerCase().trim() }`);
 		// console.log({ searchText });
@@ -62,14 +65,25 @@ export const Search = () => {
 					<h4>Result</h4>
 					<hr />
 
-					<div className="alert alert-info">
+					{/* {
+						( q === '' )
+						? <div className="alert alert-info">Search a hero</div>
+						: ( heroes.length === 0 ) && <div className="alert alert-danger">Not hero with <b>{ q }</b></div>
+					} */}
+
+					<div
+						className="alert alert-info animate__animated animate__bounce"
+						style={{ display: showSearch ? '' : 'none' }}
+					>
 						Search a hero
 					</div>
-					
-					<div className="alert alert-danger">
+
+					<div 
+						className="alert alert-danger animate__animated animate__bounce"
+						style={{ display: showError ? '' : 'none' }}
+					>
 						Not hero with <b>{ q }</b>
 					</div>
-
 
 					{ heroes.map( hero => 
 						<HeroCard key={ hero.id } { ...hero } /> )
