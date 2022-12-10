@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom"
 
 
 import { LoginPage } from "../auth/pages/LoginPage"
@@ -15,6 +15,9 @@ export const AppRouter = () => {
             <Route  path="dc" element={ <DcPage /> } />
 
             <Route path="login" element={ <LoginPage /> } />
+
+            {/* TODO Comodin para cuando no hay match con alguna ruta */}
+            <Route path="/" element={ <Navigate to="/marvel" /> } />
         </Routes>
     </>
   )
