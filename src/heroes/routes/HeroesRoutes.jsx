@@ -13,7 +13,7 @@ export const HeroesRoutes = () => {
                     <Route path="marvel" element={<Marvel />} />
                     <Route path="dc" element={<Dc />} />
                     <Route path="search" element={<Search />} />
-                    <Route path="hero" element={<Hero />} />
+                    <Route path="hero/:heroId" element={<Hero />} />
 
 
                     {/* TODO Comodin para cuando no hay match con alguna ruta */}
