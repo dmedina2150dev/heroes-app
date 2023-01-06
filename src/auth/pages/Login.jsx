@@ -9,10 +9,13 @@ export const Login = () => {
 	const navigate = useNavigate();
 
 	const onLogin = () => {
+		// TODO Se valida primero si existe el lastPath en el localStorage
+		const lastPath = localStorage.getItem('lastPath') || '/';
 
 		login( 'Dajan Medina' );
 		
-		navigate('/', { replace: true });
+		// TODO lo enviamos a la ruta
+		navigate( lastPath , { replace: true });
 	}
 
 	return (
