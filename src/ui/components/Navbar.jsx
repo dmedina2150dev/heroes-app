@@ -5,14 +5,16 @@ import { AuthContext } from '../../auth/context/AuthContext';
 
 export const Navbar = ({ props }) => {
 
-    const { user } = useContext(AuthContext);
-    console.log(user );
-
+    const { user, logout } = useContext(AuthContext);
+    
     // TODO Custom Hook de react-router-dom
     const navigate = useNavigate();
     
 
     const onLogout = () => {
+
+        logout();
+
         navigate('/login', { replace: true });
     }
 
